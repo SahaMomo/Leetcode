@@ -34,18 +34,15 @@ var isPalindrome = function(x) {
     if (x < 0 || (x !== 0 && x % 10 === 0)) {
         return false;
     }
-    let mainNumber = x;
-    let reversed_digits = 0;
+    let reversed_digits;
+    let mainDigit = x.toString();
 
-    while (mainNumber > 0) {
-        let digit = mainNumber % 10;
-        reversed_digits = reversed_digits * 10 + digit;
-        mainNumber = Math.floor(mainNumber / 10); // Use Math.floor to ensure integer division
-    }  
-    return x === reversed_digits; // Use strict equality for comparison
+    reversed_digits = mainDigit.split('').reverse().join('');
+    
+    
+    return x === parseInt(reversed_digits); 
 };
 
-// Example of calling the function
-let number = 121;
+let number = 124;
 let result = isPalindrome(number);
 console.log(`Number ${number} is a palindrome ?  ${result}`);
